@@ -1,6 +1,6 @@
 import styles from "../styles/fileForm.module.css"
 import { useMyContext } from "../App"
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
 import getLocalStorage from "../functions/getLocalStorage"
 import setLocalStorage from "../functions/setLocalStorage"
@@ -68,13 +68,13 @@ export default function FileForm(){
           <p className={styles.fakeLabel}>{file ? (file.fname?.split(".").length > 1 ? file.fname : file.fname?.concat(".json")) : "No file chosen"}</p>
         </div>
 
-        {file && <div className={styles["next-wrapper"]}>
+        {file?.fname && <div className={styles["next-wrapper"]}>
         <small onClick={clearFileContent} className={styles.dropFile}><i className="fa-solid fa-trash"></i> Drop file</small>
         <button onClick={() => setSteps(st => st +1)} className={`${styles.next} active-btn`}>Next <i className="fa-solid fa-arrow-right"></i></button>
       </div>}
       </div>
 
-      {!file && 
+      {!file?.fname && 
         <ul className={styles.fileparams}>
           <li><Link to={"/create-file"}>Create File</Link></li>
           <li><Link onClick={recoverFile}>Recover File</Link></li>

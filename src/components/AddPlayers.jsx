@@ -20,7 +20,7 @@ export default function AddPlayers(){
   const [showMorePlayers, setShowMorePlayers] = useState(null)
   const [maxShownPlayers, setMaxShownPlayers] = useState(4)
   const [showConfirmBox, setShowConfirmBox] = useState(null)
-  const [rerender, setRerender] = useState(false)
+  const [, setRerender] = useState(false)
   const nameLengthMax = 15
   const playersLengthMax = 8
   const setPlayerNameInput = useRef(null)

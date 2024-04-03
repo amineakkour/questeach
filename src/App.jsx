@@ -12,10 +12,13 @@ export const myContext = createContext()
 
 export default function App(){
   const [titleStatus, setTitleStatus] = useState(null)
-  const [steps, setSteps] = useState(1)
+  const [steps, setSteps] = useState(1);
   const [showInfos, setShowInfos] = useState(false)
-  const [players, setPlayers] = useState(getLocalStorage("players") || [])
-  const [file, setFile] = useState(getLocalStorage("file") || "")
+  const [players, setPlayers] = useState(getLocalStorage("players") || []);
+  const [file, setFile] = useState(getLocalStorage("file") || null)
+
+  useEffect(() => console.log(players), [players])
+
   const [alerts, setAlerts] = useState([])
 
   const allProps = {
@@ -28,11 +31,11 @@ export default function App(){
   }
 
   useEffect(() => {
-    setLocalStorage("players", JSON.stringify(players));
-    setLocalStorage("file", JSON.stringify(file));
+    setLocalStorage("players", players);
+    setLocalStorage("file", file);
 
     // const fileFromStorage = getLocalStorage("file");
-    if(file) setLocalStorage("ex_file", JSON.stringify(file));
+    if(file) setLocalStorage("ex_file", file);
   }, [players, file])
   
   return (
