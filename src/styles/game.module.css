@@ -1,0 +1,141 @@
+.gameBody{
+  min-height: 100vh;
+  background-color: var(--white-color);
+  color: var(--black-color);
+}
+
+.header{
+  border-bottom: 1px solid var(--black-color);
+  padding: 20px;
+  gap: 20px;
+}
+
+.playersContainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.player{
+  cursor: pointer;
+  border: 1px solid var(--gray-color);
+  height: 110px;
+  width: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 20px;
+  opacity: .6;
+  border-radius: 2px;
+}
+
+.player.active{
+  border-color: var(--black-color);
+  opacity: 1;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  transform: scale(1.05);
+}
+
+.player .avatar img{
+  width: 40px;
+}
+
+.player .name, .player .score{
+  text-align: center;
+  font-weight: bold;
+}
+
+.player .score{
+  font-size: 17px;
+  width: 50px;
+  font-weight: bolder;
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+
+/* parameters */
+.paremeters{
+  margin-top: 15px;
+}
+
+.paremeters ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paremeters .Item > button{
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.Item > button:hover{ /* Main button */
+  color: var(--third-color);
+}
+
+.Item > button i{
+  transition: .4s transform;
+}
+
+.Item.active > button i{
+  transform: rotate(180deg);
+}
+
+.Item button{ /* All buttons in parameters list*/
+  background-color: var(--first-color);
+  color: var(--white-color);
+  padding: 10px 5px;
+  width: 170px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid transparent;
+}
+
+
+.Item button a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.Item .subItems{
+  overflow: hidden;
+  position: absolute;
+  z-index: 99;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  animation: slideDown .5s forwards; /* animation delay */
+  height: 0;
+}
+
+
+@keyframes slideDown {
+  100%{
+    height: auto;
+  }
+}
+
+.Item .subItems button{
+  display: block;
+}
+
+
+/* parameters */
+
+/* questionWrapper */
+
+.content{
+  min-height: calc(100vh - 170px);
+  background-color: var(--third-color);
+  display: flex;
+  flex-direction: column;
+  color: var(--white-color);
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+}
+
+.content .title{
+  padding: 10px;
+  background-color: var(--whitegray-color);
+  width: 80%;
+}

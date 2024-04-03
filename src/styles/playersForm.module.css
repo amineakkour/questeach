@@ -1,0 +1,161 @@
+.addPlayerformContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.addPlayerformContainer .settings{
+  margin: 5px;
+  display: flex;
+  gap: 5px;
+}
+
+.addPlayersWrapper{
+  width: 400px;
+  background: var(--white-color);
+  color: var(--black-color);
+  padding: 20px 10px;
+}
+
+.addPlayersWrapper .inputBox{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.inputBox .inputCount{
+  position: absolute;
+  right: 80px;
+  top: 17px;
+}
+
+.addPlayersWrapper .inputBox input{
+  border: 1px solid var(--gray-color);
+  padding: 5px 10px;
+  font-size: 18px;
+  border-radius: 3px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+  width: 100%;
+  height: 35px;
+  margin: 5px 0;
+  padding-right: 50px;
+}
+
+.addPlayersWrapper .inputBox input:focus{
+  border-color: black;
+  outline: 2px solid var(--black-color);
+  outline: 0;
+}
+
+.addPlayersWrapper .inputBox button{
+  border-radius: 3px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: var(--green-color);
+  color: var(--white-color);
+  border: 0;
+  height: 35px;
+  padding: 5px 10px;
+  white-space: nowrap;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.addPlayersWrapper .inputBox button:hover{
+  background-color: green;
+}
+
+.fieldsWrapper{
+  margin: 5px 0 10px 5px;
+}
+
+.fieldsWrapper .field{
+  display: flex;
+  gap: 10px;
+  padding: 3px;
+  border-bottom: 1px solid var(--gray-color);
+}
+
+.fieldsWrapper .field label{
+  display: flex;
+  gap: 5px;
+}
+
+.players .count{
+  margin-bottom: 5px;
+}
+
+.players .player{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  align-items: center;
+  margin: 5px;
+  border: 1px solid var(--gray-color);
+}
+
+.players .show{
+  display: flex;
+  padding: 5px 10px;
+  align-items: center;
+  margin: 5px;
+  background-color: var(--gray-color);
+  color: var(--white-color);
+  cursor: pointer;
+  gap: 5px;
+  justify-content: center;
+  border: 1px solid transparent;
+}
+
+.players .showLess{
+  background-color: var(--whitegray-color);
+  color: var(--gray-color);
+  border: 1px solid var(--gray-color);
+}
+
+.players .image img{
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+.player .ind{
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  background-color: var(--black-color);
+  color: var(--white-color);
+  margin: 0 15px 0 0;
+}
+
+.player .name{
+  width: 100%;
+  padding: 0 15px;
+}
+
+.player .remove{
+  color: var(--red-color);
+  cursor: pointer;
+}
+
+.addPlayersWrapper .param{
+  background-color: var(--red-color);
+  color: var(--white-color);
+  border: 0;
+  padding: 5px;
+  border-radius: 2px;
+  display: flex;
+  gap: 5px;
+  cursor: pointer;
+  transition: .2s;
+  border: 1px solid transparent;
+}
+
+.addPlayersWrapper .param:hover{
+  background-color: var(--white-color);
+  color: var(--red-color);
+  border-color: var(--red-color);
+}

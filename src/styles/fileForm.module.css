@@ -1,0 +1,78 @@
+.fileForm{
+  padding: 5px;
+  position: relative;
+}
+
+.fileForm .fileInput{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  height: 30px;
+  opacity: 0;
+  cursor: auto;
+}
+
+.wrapperFakeInput{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 30px;
+}
+
+.wrapperFakeInput .fakeInput{
+  font-size: 14px;
+  border: 1px solid var(--gray-color);
+  padding: 3px 5px;
+  border-radius: 2px;
+  background-color: var(--white-color);
+  color: var(--black-color);
+}
+
+.wrapperFakeInput .fakeLabel{
+  font-size: 13px;
+}
+
+.fileForm .next-wrapper{
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fileForm .next{
+  padding: 5px 7px;
+  font-size: 13px;
+  border: 1px solid var(--white-color);
+}
+
+.dropFile{
+  cursor: pointer;
+  color: var(--gray-color);
+  text-decoration: none !important;
+}
+
+.dropFile:hover{
+  color: var(--red-color);
+}
+
+.fileparams{
+  display: flex;
+  justify-content: space-between;
+}
+
+.fileparams li{
+  color: var(--white-color);
+  display: inline-block;
+  cursor: pointer;
+  list-style: none;
+  text-decoration: none;
+}
+
+.fileparams li a{
+  color: inherit;
+  font-size: 12px;
+}
+
+.fileparams li a:hover{
+  opacity: .8;
+}

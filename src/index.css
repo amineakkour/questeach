@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --first-color: #007fbf;
+  --second-color: #00547F;
+  --third-color: #002a40;
+  --white-color: #fff;
+  --black-color: #000;
+  --red-color: #F22222;
+  --green-color: #0C5C00;
+  --gray-color: #808080;
+  --whitegray-color: rgba(128, 128, 128, 0.2);
+}
+
+body{
+  background-color: var(--third-color);
+  min-height: 100vh;
+  color: var(--white-color);
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+
+.app{
+  position: relative;
+}
+
+.active-btn{
+  background-color: var(--first-color);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  color: var(--white-color);
+  font-weight: bolder;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .4s all;
+  padding: 10px 20px;
+  border: 2px solid var(--white-color);
+}
+
+.active-btn:hover{
+  background-color: var(--white-color);
+  color: var(--first-color);
+  border-color: var(--first-color);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.confirm-wrapper{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transition: filter 0.3s ease;
+  background-color: var(--white-color);
+  opacity: .8;
+  z-index: 99;
+}
+
+.confirm-box{
+  filter: blur(0px);
+  background-color: var(--white-color) !important;
+  color: var(--black-color);
+  position: absolute;;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  width: 430px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: .4s all; 
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.confirm-box h4{
+  padding: 10px 0
+}
+
+.confirm-box .btns{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.confirm-box button{
+  background-color: var(--red-color);
+  color: var(--white-color);
+  border: 1px solid var(--black-color);
+  border-color: transparent;
+  padding: 7px 15px;
+  border-radius: 2px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  font-weight: bolder;
+  opacity: .5;
+  transition: .2s;
+}
+
+.confirm-box button:hover{
+  opacity: 1;
+}
+.confirm-box .green-btn{
+  opacity: .9;
+  background-color: var(--green-color);
+}
+
+.center-with-position-absolute{
+  position: absolute !important;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  
+}
+
+.disabledButton{
+  color: var(--black-color) !important;
+  background-color: var(--gray-color) !important;
+}
+
+.disabledButton:hover{
+  background-color: var(--gray-color) !important;
+  cursor: auto !important;
+}
+
+
+
+.alert-box{
+  max-height: 50vh;
+  overflow: auto;
+  position: absolute;
+  right: 20px;
+  top: 70px;
+  z-index: 99;
+}
+
+.alert-box::-webkit-scrollbar{
+  width: 0;
+}
+
+.alert {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  width: 320px;
+  padding: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  background: var(--red-color);
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px -3px #111;
+  margin-bottom: 5px;
+}
+
+.alert_icon {
+  width: 20px;
+  height: 20px;
+  transform: translateY(-2px);
+  margin-right: 8px;
+}
+
+.alert_icon path {
+  fill: #fff;
+}
+
+.alert_title {
+  font-weight: 500;
+  font-size: 14px;
+  color: #fff;
+}
+
+.alert_close {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.alert_close path {
+  fill: #fff;
+}

@@ -1,0 +1,274 @@
+*{
+  scroll-behavior: smooth;
+}
+
+body{
+  background:  linear-gradient(#022c41ee, #002a40), url("https://png.pngtree.com/thumb_back/fh260/background/20230416/pngtree-game-space-interstellar-image_2408883.jpg");
+  background-size: cover;
+}
+
+.container{
+  background-color: var(--white-color);
+  margin: 20px auto;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 5px;
+  color: var(--black-color);
+  padding: 30px;
+}
+
+.container button{
+  background-color: var(--first-color);
+  color: var(--white-color);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  border-color: transparent;
+  padding: 10px;
+  margin: 5px 0;
+  transition: .3s all;
+}
+
+.container button:hover{
+  transform: scale(1.1);
+}
+
+.container a{
+  color: var(--gray-color);
+  text-decoration: none;
+}
+
+.container h1{
+  margin: 10px 0;
+}
+
+.container .error{
+  color: var(--red-color);
+  cursor: pointer;
+}
+
+.container .error p{
+  color: inherit;
+}
+
+.container .error p:hover{
+  text-decoration: underline;
+}
+
+.navigate{
+  display: flex;
+  background-color: var(--black-color);
+  color: var(--white-color);
+  padding: 5px;
+  position: sticky;
+  z-index: 99;
+  top: 0px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.navigate ul li {
+  display: inline-block;
+  color: var(--white-color);
+  padding: 0 5px;
+  margin-left: 5px;
+}
+
+.navigate ul li.active{
+  background-color: var(--white-color);
+  color: var(--black-color);
+  border-radius: 3px;
+}
+
+.navigate ul li:hover{
+  text-decoration: underline;
+}
+
+.navigate ul li a{
+  color: inherit;
+}
+
+.field{
+  margin: 30px 0;
+}
+
+.fieldContainer{
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+.field{
+  display: flex;
+  align-items: center;
+}
+
+.field label{
+  font-weight: bold;
+  display: inline-block;
+  width: 200px;
+}
+
+.field input{
+  width: 100%;
+  padding: 5px;
+  border-color: transparent;
+  border-bottom: 1px solid var(--black-color);
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.field input:focus{
+  outline: 0;
+}
+
+.questionWrapper{
+  padding: 10px 0;
+}
+
+.question {
+  border: 1px solid var(--gray-color);  
+  padding: 20px;
+  position: relative;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.question.showLess{
+  height: 100px;
+  overflow: hidden;
+}
+
+.question.hasError{
+  animation: error .4s infinite backwards;
+}
+
+@keyframes error {
+  100%{
+    border-color: var(--red-color);
+  }
+}
+
+.question.hasError .questionId{
+  /* outline: 1px solid var(--red-color); */
+  color: var(--red-color);
+}
+
+.question .questionId{
+  color: var(--gray-color);
+  position: absolute;
+  font-size: 14px;
+}
+
+.icons{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.icons > *{
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.question .deleteQuestionIcon{
+  color: var(--red-color);
+}
+
+.answers{
+  border: 1px solid var(--gray-color);
+  padding: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.answer{
+  margin-bottom: 10px;
+}
+
+.answer .inputContainer{
+  display: flex;
+  align-items: center;
+}
+
+.answer label{
+  font-size: 17px;
+  width: 150px;
+  font-weight: bold;
+}
+
+.answer .inputContainer input{
+  width: 100%;
+}
+
+.answerParams{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 15px;
+}
+
+.answerParams .isCorrect{
+  position: relative;
+}
+
+.answer .isCorrect label, .answer .isCorrect input{
+  cursor: pointer;
+}
+
+.answerParams .isCorrect input{
+  opacity: 0;
+  z-index: 99;
+  position: relative;
+}
+
+
+.answerParams .fakeCheckBox{
+  position: absolute;
+  top: 2px;
+  right: 0;
+  border: 1px solid var(--third-color);
+  height: 15px;
+  width: 15px;
+}
+
+.answerParams .fakeCheckBox.fill{
+  background-color: var(--first-color);
+}
+
+.answerParams .remove{
+  color: var(--red-color);
+  cursor: pointer;
+}
+
+.answerParams .remove:hover{
+  text-decoration: underline;
+}
+
+.answer .isCorrect{
+  font-size: 15px;
+}
+
+.answer input{
+  padding: 5px;
+  border-color: transparent;
+  border-bottom: 1px solid var(--black-color);
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.answer input:focus{
+  outline: 0;
+}
+
+.fileManagement{
+  display: flex;
+  gap: 10px;
+  margin-top: 50px;
+}
+
+.fileManagement button i{
+  padding-right: 10px;
+}

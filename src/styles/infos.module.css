@@ -1,0 +1,50 @@
+.infosContainer{
+  width: 800px;
+  max-width: 80%;
+  background-color: var(--white-color);
+  color: var(--black-color);
+  border-radius: 5px;
+  border: 1px solid var(--black-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  max-height: 80vh;
+  overflow: auto;
+}
+
+.infosContainer .closeIcon{
+  font-size: 25px;
+  display: flex;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  justify-content: end;
+  background-color: var(--white-color);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  margin-bottom: 20px;
+}
+
+.infosContainer .closeIcon i{
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+.infosContainer .para{
+  margin: auto;
+  margin-bottom: 20px;
+  width: 80%;
+}
+
+.infosContainer{
+  scrollbar-width: thin;
+}
+
+/* Chrome, Edge, and Safari */
+.infosContainer::-webkit-scrollbar {
+  width: 5px;
+}

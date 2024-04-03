@@ -1,0 +1,52 @@
+.container{
+  background-color: var(--white-color);
+  margin: 20px auto;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 5px;
+  color: var(--black-color);
+  padding: 30px;
+}
+
+.container a{
+  color: var(--gray-color);
+  text-decoration: none;
+}
+
+.container h2{
+  margin: 20px 0;
+}
+
+.file{
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border: 1px solid rgba(128, 128, 128, 0.1);
+  padding: 10px 20px;
+  align-items: center;
+}
+
+.btns{
+  display: flex;
+  gap: 10px;
+}
+
+.btns button{
+  color: var(--green-color);
+  padding: 10px;
+  border: 0;
+  background-color: transparent;
+  font-weight: bold;
+  font-style: inherit;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btns button:hover{
+  text-decoration: underline;
+}
+
+.btns button.delete{
+  color: var(--red-color);
+}

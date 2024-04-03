@@ -1,0 +1,20 @@
+.header{
+  color: var(--third-color);
+  background-color: var(--white-color);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .steps, .header .infos {
+  cursor: pointer;
+}
+
+.header div{
+  padding: 10px;
+}
+
+.infos{
+  text-align: center;
+}
