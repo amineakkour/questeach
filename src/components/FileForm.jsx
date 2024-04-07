@@ -46,13 +46,9 @@ export default function FileForm(){
 
   function recoverFile(){
     const ex_file = getLocalStorage("ex_file");
-    
-    console.log(ex_file)
 
     if(ex_file){
-      setLocalStorage("file", ex_file)
-    }else{
-      console.log("No ex file")
+      setFile(ex_file)
     }
 
   }
@@ -77,7 +73,7 @@ export default function FileForm(){
       {!file?.fname && 
         <ul className={styles.fileparams}>
           <li><Link to={"/create-file"}>Create File</Link></li>
-          <li><Link onClick={recoverFile}>Recover File</Link></li>
+          {getLocalStorage("ex_file") && <li><Link onClick={recoverFile}>Recover File</Link></li>}
         </ul>
       }
     </form>

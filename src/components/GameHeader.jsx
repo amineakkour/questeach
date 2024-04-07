@@ -40,8 +40,6 @@ function List(){
 
   const navigate = useNavigate()
 
-  useEffect(() => console.log(isPlayersButtonActivate), [isPlayersButtonActivate])
-
   return (
     <div className={styles.paremeters}>
       <ul>      

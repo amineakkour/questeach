@@ -34,7 +34,6 @@ export default function App(){
     setLocalStorage("players", players);
     setLocalStorage("file", file);
 
-    // const fileFromStorage = getLocalStorage("file");
     if(file) setLocalStorage("ex_file", file);
   }, [players, file])
   
