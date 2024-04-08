@@ -34,18 +34,26 @@ export default function GameHeader(){
 
 function List(){
   const [, setSetps] = useMyContext().steps
+  const [, setFile] = useMyContext().file
+  const [, setPlayers] = useMyContext().players
   const [isPlayersButtonActivate, setIsPlayersButtonActivate] = useState(false)
   const [isFileButtonActivate, setIsFileButtonActivate] = useState(false)
   const [isTimeButtonActivate, setIsTimeButtonActivate] = useState(false)
 
   const navigate = useNavigate()
 
+  function restart(){
+    setFile(null)
+    setPlayers([])
+    localStorage.clear()
+  }
+
   return (
     <div className={styles.paremeters}>
       <ul>      
         <div className={`${styles.Item} ${isPlayersButtonActivate ? styles.active : ""}`}>
 
-          <button>Restart</button>
+          <button onClick={restart}>Restart</button>
 
         </div>
 
@@ -54,10 +62,7 @@ function List(){
           <button onClick={() => setIsPlayersButtonActivate(v => !v)}>Players <i className="fa-solid fa-chevron-down"></i></button>
 
           {isPlayersButtonActivate && <div className={styles.subItems}>
-              <button onClick={() => navigate("/3")}>Add Player</button>
-              <button onClick={() => navigate("/3")}>Activate Player</button>
-              <button><Link to={"/3"}>Remove Player</Link></button>
-              <button>Edit Player</button>
+              <button onClick={() => navigate("config/players")}>Edit Player</button>
           </div>}
 
         </div>
@@ -67,10 +72,6 @@ function List(){
 
           {isFileButtonActivate && <div className={styles.subItems}>
             <button><Link to={"/2"}>Change File</Link></button>
-            <button>Remove Question</button>
-            <button>shuffle questions</button>
-            <button>Reactivate Quests</button>
-            <button>Desactivate Quests</button>
           </div>}
 
         </div>
@@ -79,8 +80,8 @@ function List(){
           <button onClick={() => setIsTimeButtonActivate(v => !v)} >Timer <i className="fa-solid fa-chevron-down"></i></button>
 
           {isTimeButtonActivate && <div className={styles.subItems}>
-            <button>Edit Timer</button>
-            <button>Remove Timer</button>
+            <button onClick={() => navigate("config/timer/edit")}>Edit Timer</button>
+            <button onClick={() => navigate("config/timer/remove")}>Remove Timer</button>
           </div>}
 
         </div>

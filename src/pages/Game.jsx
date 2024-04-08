@@ -1,6 +1,6 @@
 import styles from "../styles/game.module.css"
 import { useMyContext } from "../App"
-import { useNavigate } from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
 import GameHeader from "../components/GameHeader"
 import GameQuestionWrapper from "../components/GameQuestionWrapper"
 import { useEffect } from "react"
@@ -23,6 +23,7 @@ export default function Game(){
         <GameHeader />
       
         <div className={styles.content}>
+          <Outlet />
           <div className={styles.title}>
             <h2>Choose a question for the Player Amine.</h2>
           </div>

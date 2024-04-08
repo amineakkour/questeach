@@ -1,5 +1,7 @@
 import Home from './pages/Home';
 import Game from './pages/Game';
+import Container from "./components/config/Container";
+import EditPlayers from "./components/config/players/EditPlayers";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createContext, useContext, useEffect, useState } from 'react';
@@ -8,7 +10,7 @@ import ChooseFile from './components/ChooseFile';
 import setLocalStorage from './functions/setLocalStorage';
 import getLocalStorage from './functions/getLocalStorage';
 
-export const myContext = createContext()
+export const MyContext = createContext()
 
 export default function App(){
   const [titleStatus, setTitleStatus] = useState(null)
@@ -16,8 +18,6 @@ export default function App(){
   const [showInfos, setShowInfos] = useState(false)
   const [players, setPlayers] = useState(getLocalStorage("players") || []);
   const [file, setFile] = useState(getLocalStorage("file") || null)
-
-  useEffect(() => console.log(players), [players])
 
   const [alerts, setAlerts] = useState([])
 
@@ -39,21 +39,27 @@ export default function App(){
   
   return (
     <BrowserRouter>
-      <myContext.Provider value={allProps}>
+      <MyContext.Provider value={allProps}>
         <Routes>
           <Route path='' element={<Home />} />
           <Route path='/:pageId' element={<Home />} />
           <Route path='create-file' element={<CreateFile />} />
           <Route path='choose-file' element={<ChooseFile />} />
-          <Route path="game" element={<Game />} />
+
+          <Route path="game" element={<Game />}>
+            <Route path='config' element={<Container />}>
+              <Route path='players' element={<EditPlayers />} />
+            </Route>
+          </Route>
+
           <Route path="*" element={<h1>Page not found</h1>} />
         </Routes>
-      </myContext.Provider>
+      </MyContext.Provider>
     </BrowserRouter>
   )
 }
 
 export function useMyContext() {
-  const myc = useContext(myContext)
+  const myc = useContext(MyContext)
   return myc
 }
