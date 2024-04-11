@@ -1,8 +1,9 @@
 import { Link, useNavigate } from "react-router-dom"
 import styles from "../styles/createFile.module.css"
-import { useMyContext } from "../App"
 import { createContext, useContext, useEffect, useState } from "react"
 import Title from "./Title"
+import { useStarterContext } from "../context/StarterProvider"
+import getLocalStorage from "../functions/getLocalStorage"
 
 const createFileContext = createContext();
 
@@ -58,7 +59,7 @@ function Answer({id, index, question, questionId}){
 }
   
   function Question({id, index}){
-    const [, setTitle] = useMyContext().title;
+    const { setTitleStatus } = useStarterContext();
     const [showLess, setShowLess] = useState(id !== 1) // return true when for the first question
     const [questions, setQuestions] = useContext(createFileContext).questions.values;
     const [answersCounter, setAnswersCounter] = useState(2) // starts with 2 because we have 2 default answers with each question
@@ -87,7 +88,7 @@ function Answer({id, index, question, questionId}){
 
   function handleDropAnswer(){
     setQuestions(questions => questions.filter(question => question.id !== id))
-    setTimeout(() => setTitle(), 200)
+    setTimeout(() => setTitleStatus(), 200)
   }
 
 
@@ -120,8 +121,8 @@ function Answer({id, index, question, questionId}){
 
           <div className={styles.deleteQuestionIcon}
             onDoubleClick={handleDropAnswer} 
-            onMouseEnter={e => setTitle({txt: "Double click to remove Questions", x: e.pageX, y: e.pageY})} 
-            onMouseLeave={() => setTimeout(() => setTitle(), 200)}
+            onMouseEnter={e => setTitleStatus({txt: "Double click to remove Questions", x: e.pageX, y: e.pageY})} 
+            onMouseLeave={() => setTimeout(() => setTitleStatus(), 200)}
           >
             <i className="fa-solid fa-trash-can"></i>
           </div>
@@ -185,14 +186,8 @@ function QuestionsWrapper(){
 }
 
 export default function CreateFile(){
-  
-  function getDataFromLocalStorage(key){
-    return JSON.parse(localStorage.getItem(key))
-  }
-
-  const [title, setTitle] = useMyContext().title
-  const [fileContent, setFileContent] = useMyContext().file
-  const [questions, setQuestions] = useState(getDataFromLocalStorage("questions") || []);
+  const {titleStatus, setTitleStatus, setFile} = useStarterContext()
+  const [questions, setQuestions] = useState(getLocalStorage("questions") || []);
   const [questionCounter, setQuestionCounter] = useState(0);
   const [fileName, setFileName] = useState(localStorage.getItem("fileName") || "exercices");
   const [errors, setErrors] = useState({invisible: true, text: "This is an error message"});
@@ -225,7 +220,7 @@ export default function CreateFile(){
   function clearAllQuestions(){
     setQuestions([])
     setErrors(null)
-    setTimeout(() => setTitle(null), 200);  
+    setTimeout(() => setTitleStatus(null), 200);  
   }
 
   function validateData(){
@@ -284,7 +279,7 @@ export default function CreateFile(){
     if(error){
       window.scrollTo({top: 0, behavior: "smooth"});
     }else{
-      setFileContent({fname: fileName, fcontent: questions})
+      setFile({fname: fileName, fcontent: questions})
       navigate("/2")
     }
   
@@ -312,7 +307,7 @@ export default function CreateFile(){
 
   return (
     <createFileContext.Provider value={fileContextValues}>
-      {title && <Title />}
+      {titleStatus && <Title />}
 
       <div className={styles.container}>
 
@@ -354,8 +349,8 @@ export default function CreateFile(){
             <div className={styles.fileManagement}>
                 
               <button onDoubleClick={clearAllQuestions} 
-                onMouseEnter={e => setTitle({txt: "Double click to remove Questions", x: e.pageX, y: e.pageY})} 
-                onMouseLeave={() => setTimeout(() => setTitle(), 200)}
+                onMouseEnter={e => setTitleStatus({txt: "Double click to remove Questions", x: e.pageX, y: e.pageY})} 
+                onMouseLeave={() => setTimeout(() => setTitleStatus(), 200)}
               >
                 <i className="fa-solid fa-trash-can"></i>
                 Remove all questions

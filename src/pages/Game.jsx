@@ -1,23 +1,23 @@
 import styles from "../styles/game.module.css"
-import { useMyContext } from "../App"
 import { Outlet, useNavigate } from "react-router-dom"
 import GameHeader from "../components/GameHeader"
 import GameQuestionWrapper from "../components/GameQuestionWrapper"
 import { useEffect } from "react"
+import { useStarterContext } from "../context/StarterProvider"
 
 export default function Game(){
-  const [fileContent] = useMyContext().file
+  const { file } = useStarterContext()
   const navigate = useNavigate()
-  const [players] = useMyContext().players
+  const {players} = useStarterContext()
 
   useEffect(() => {
-    if(!(players.length >= 2 && fileContent)){
+    if(!(players.length >= 2 && file)){
       navigate("/2")
     }
-  }, [players.length, fileContent])
+  }, [players.length, file])
 
 
-  if(players.length >= 2 && fileContent){
+  if(players.length >= 2 && file){
     return (
       <div className={styles.gameBody}>
         <GameHeader />
@@ -27,7 +27,7 @@ export default function Game(){
           <div className={styles.title}>
             <h2>Choose a question for the Player Amine.</h2>
           </div>
-          <GameQuestionWrapper fcontent={fileContent.fcontent} />
+          <GameQuestionWrapper fcontent={file.fcontent} />
         </div>
       </div>
     )

@@ -6,14 +6,14 @@ import maleAvatar from "../images/male-avatar.png";
 import shuffle from "../functions/shuffle"
 import { ConfirmBox } from "../components/ConfirmBox";
 import { useFocusInput } from "../hooks/useFocusInput";
-import { useMyContext } from "../App";
+import { useStarterContext } from "../context/StarterProvider";
 
 
 export default function AddPlayers(){
-  const [players, setPlayers] = useMyContext().players
-  const [, setTitleStatus] = useMyContext().title
-  const [, setSteps] = useMyContext().steps
-  const [, setAlerts] = useMyContext().alerts
+  const { players, setPlayers } = useStarterContext()
+  const { setTitleStatus } = useStarterContext()
+  const { setSteps } = useStarterContext()
+  const { setAlerts } = useStarterContext()
 
   const [sex, setSex] = useState("m")
   const [name, setName] = useState("")

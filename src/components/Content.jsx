@@ -7,30 +7,18 @@ import Infos from "../components/Infos";
 
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom'; 
-import { useMyContext } from "../App";
 import StartButton from "./StartButton";
 import BackToButton from "./BackToButton";
 import { useEffect } from "react";
+import { useStarterContext } from "../context/StarterProvider";
 
 export default function Content(){
   const navigate = useNavigate()
-  const {pageId} = useParams()
 
-  const [steps, setSteps] = useMyContext().steps
-  const [showInfos] = useMyContext().showInfos
-  const [alerts] = useMyContext().alerts
-  const [ isGameStarted, setIsGameStarted ] = useMyContext().gameStarted
-
-  useEffect(() => setSteps(parseInt(pageId) || 1), [setSteps, pageId])
-
-  useEffect(() => {
-    if(isGameStarted) navigate("/game")
-  }, [])
-
-  if(steps >= 4){
-    setIsGameStarted(true)
-  }
-
+  const { steps } = useStarterContext()
+  const { showInfos } = useStarterContext()
+  const { alerts } = useStarterContext()
+  
 
   return(
   <div className={styles.content}>

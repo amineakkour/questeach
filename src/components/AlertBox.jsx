@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { useMyContext } from "../App";
+import { useStarterContext } from "../context/StarterProvider";
 
 export default function AlertBox(){
-  const [alerts, setAlerts] = useMyContext().alerts
+  const {alerts, setAlerts} = useStarterContext()
   
   useEffect(() => {
     const timeoutId = setTimeout(() => {

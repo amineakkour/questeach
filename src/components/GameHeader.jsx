@@ -1,13 +1,13 @@
 import maleAvatar from "../images/male-avatar.png"
 import femaleAvatar from "../images/female-avatar.png"
 
-import { useMyContext } from "../App"
 import styles from "../styles/game.module.css"
 import { Link, useNavigate } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useState } from "react"
+import { useStarterContext } from "../context/StarterProvider"
 
 export default function GameHeader(){
-  const [players] = useMyContext().players
+  const {players} = useStarterContext()
 
   return (
     <div className={styles.header}>
@@ -33,9 +33,9 @@ export default function GameHeader(){
 }
 
 function List(){
-  const [, setFile] = useMyContext().file
-  const [, setPlayers] = useMyContext().players
-  const [, setIsGameStarted ] = useMyContext().gameStarted
+  const {setFile} = useStarterContext()
+  const {setPlayers} = useStarterContext()
+  const {setIsGameStarted} = useStarterContext()
 
   const [isPlayersButtonActivate, setIsPlayersButtonActivate] = useState(false)
   const [isFileButtonActivate, setIsFileButtonActivate] = useState(false)

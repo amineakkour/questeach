@@ -1,15 +1,11 @@
 import { useEffect, useRef, useState } from "react"
-import { useMyContext } from "../App"
+import { useStarterContext } from "../context/StarterProvider"
 
 export default function Title(){
-  const titleStatus = useMyContext().title[0]
+  const { titleStatus } = useStarterContext()
   const { x } = titleStatus
   const { y } = titleStatus
   const { txt } = titleStatus
-
-  // useEffect(() => {setTimeout(() => {
-  //   setAppear(true)
-  // }, 300);}, [])
 
   const titleEl = useRef(null)
   const [titleElementWidth, settitleElementWidth] = useState(0)

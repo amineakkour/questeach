@@ -1,22 +1,21 @@
 import styles from "../styles/fileForm.module.css"
-import { useMyContext } from "../App"
-import { useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
 import getLocalStorage from "../functions/getLocalStorage"
-import setLocalStorage from "../functions/setLocalStorage"
+import { useStarterContext } from "../context/StarterProvider"
+import { useRef } from "react"
 
 export default function FileForm(){
-  const [, setAlerts] = useMyContext().alerts
-  const [, setSteps] = useMyContext().steps
-  const [file, setFile] = useMyContext().file
-  const input = useRef(null)
+  const {setAlerts} = useStarterContext()
+  const {setSteps} = useStarterContext()
+  const {file, setFile} = useStarterContext()
+  const inputEl = useRef(null)
 
   function editFileContent(newFile){
     setFile(newFile)
   }
   
   function clearFileContent(){
-    input.current.value = null
+    inputEl.current.value = null
     setFile(null)
   }
 
@@ -57,7 +56,7 @@ export default function FileForm(){
     <form className={`center-with-position-absolute ${styles.fileForm}`}>
       <div>
         <p>Please choose questions/answers json file</p>
-        <input className={styles.fileInput} ref={input} type="file" onChange={e => handleFileChange(e)}/>
+        <input className={styles.fileInput} ref={inputEl} type="file" onChange={e => handleFileChange(e)}/>
         
         <div className={styles.wrapperFakeInput}>
           <p className={styles.fakeInput}>{file ? "Change File" : "Choose File"}</p>

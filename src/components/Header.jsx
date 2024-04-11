@@ -1,12 +1,12 @@
-import { useMyContext } from "../App"
+import { useStarterContext } from "../context/StarterProvider";
 import styles from "../styles/header.module.css"
 import { useNavigate } from 'react-router-dom';
 
 
 export default function Header(){
-  const steps =  useMyContext().steps[0]
-  const setTitleStatus =  useMyContext().title[1]
-  const setShowInfos =  useMyContext().showInfos[1]
+  const {steps} =  useStarterContext()
+  const {setTitleStatus} =  useStarterContext()
+  const {setShowInfos} =  useStarterContext()
   const navigate = useNavigate()
 
   return (

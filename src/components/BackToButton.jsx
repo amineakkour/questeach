@@ -1,9 +1,9 @@
 import styles from "../styles/content.module.css"
-import { useMyContext } from "../App"
+import { useStarterContext } from "../context/StarterProvider"
 
 export default function BackToButton() {
-  const [steps, setSteps] = useMyContext().steps
-  const [, setTitleStatus] = useMyContext().title
+  const {steps, setSteps} = useStarterContext()
+  const {setTitleStatus} = useStarterContext()
 
   return (
     <button 

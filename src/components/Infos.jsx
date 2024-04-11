@@ -1,9 +1,9 @@
 import styles from "../styles/infos.module.css"
-import { useMyContext } from "../App"
+import { useStarterContext } from "../context/StarterProvider"
 
 export default function Infos(){
 
-  const [, setShowInfos] = useMyContext().showInfos
+  const {setShowInfos} = useStarterContext()
   return (
     <div className={styles.infosContainer}>
       <div className={styles.closeIcon}>
