@@ -19,8 +19,17 @@ export default function Content(){
   const [steps, setSteps] = useMyContext().steps
   const [showInfos] = useMyContext().showInfos
   const [alerts] = useMyContext().alerts
+  const [ isGameStarted, setIsGameStarted ] = useMyContext().gameStarted
 
   useEffect(() => setSteps(parseInt(pageId) || 1), [setSteps, pageId])
+
+  useEffect(() => {
+    if(isGameStarted) navigate("/game")
+  }, [])
+
+  if(steps >= 4){
+    setIsGameStarted(true)
+  }
 
 
   return(

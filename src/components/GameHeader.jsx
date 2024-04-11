@@ -33,19 +33,22 @@ export default function GameHeader(){
 }
 
 function List(){
-  const [, setSetps] = useMyContext().steps
   const [, setFile] = useMyContext().file
   const [, setPlayers] = useMyContext().players
+  const [, setIsGameStarted ] = useMyContext().gameStarted
+
   const [isPlayersButtonActivate, setIsPlayersButtonActivate] = useState(false)
   const [isFileButtonActivate, setIsFileButtonActivate] = useState(false)
   const [isTimeButtonActivate, setIsTimeButtonActivate] = useState(false)
 
+
   const navigate = useNavigate()
 
   function restart(){
+    setIsGameStarted(false)
     setFile(null)
     setPlayers([])
-    localStorage.clear()
+    navigate("/")
   }
 
   return (
@@ -62,7 +65,7 @@ function List(){
           <button onClick={() => setIsPlayersButtonActivate(v => !v)}>Players <i className="fa-solid fa-chevron-down"></i></button>
 
           {isPlayersButtonActivate && <div className={styles.subItems}>
-              <button onClick={() => navigate("config/players")}>Edit Player</button>
+              <button onClick={() => navigate("config/players")}>Edit Players</button>
           </div>}
 
         </div>
@@ -71,7 +74,7 @@ function List(){
           <button onClick={() => setIsFileButtonActivate(v => !v)}>File <i className="fa-solid fa-chevron-down"></i></button>
 
           {isFileButtonActivate && <div className={styles.subItems}>
-            <button><Link to={"/2"}>Change File</Link></button>
+            <button><Link to={"config/file"}>Change File</Link></button>
           </div>}
 
         </div>

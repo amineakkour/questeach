@@ -5,13 +5,14 @@ import {useMyContext } from "../App.jsx"
 
 export default function Home() {
   const [ titleStatus ] = useMyContext().title
+  
+
 
   return (
       <div className="app">
         {titleStatus && <Title/>}
 
         <Header/>
-
         <Content/>
 
       </div>

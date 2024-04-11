@@ -73,7 +73,7 @@ export default function FileForm(){
       {!file?.fname && 
         <ul className={styles.fileparams}>
           <li><Link to={"/create-file"}>Create File</Link></li>
-          {getLocalStorage("ex_file") && <li><Link onClick={recoverFile}>Recover File</Link></li>}
+          {getLocalStorage("ex_file") && <li><Link onClick={recoverFile}>Recover Last File</Link></li>}
         </ul>
       }
     </form>

@@ -9,15 +9,17 @@ import CreateFile from './components/CreateFile';
 import ChooseFile from './components/ChooseFile';
 import setLocalStorage from './functions/setLocalStorage';
 import getLocalStorage from './functions/getLocalStorage';
+import ChangeFile from './components/config/file/ChangeFile';
 
 export const MyContext = createContext()
 
 export default function App(){
-  const [titleStatus, setTitleStatus] = useState(null)
+  const [titleStatus, setTitleStatus] = useState(null);
   const [steps, setSteps] = useState(1);
-  const [showInfos, setShowInfos] = useState(false)
+  const [showInfos, setShowInfos] = useState(false);
   const [players, setPlayers] = useState(getLocalStorage("players") || []);
-  const [file, setFile] = useState(getLocalStorage("file") || null)
+  const [file, setFile] = useState(getLocalStorage("file") || null);
+  const [isGameStarted, setIsGameStarted] = useState(false);
 
   const [alerts, setAlerts] = useState([])
 
@@ -27,7 +29,8 @@ export default function App(){
     alerts: [alerts, setAlerts],
     title: [titleStatus, setTitleStatus],
     steps: [steps, setSteps],
-    showInfos: [showInfos, setShowInfos]
+    showInfos: [showInfos, setShowInfos],
+    gameStarted: [isGameStarted, setIsGameStarted],
   }
 
   useEffect(() => {
@@ -49,6 +52,7 @@ export default function App(){
           <Route path="game" element={<Game />}>
             <Route path='config' element={<Container />}>
               <Route path='players' element={<EditPlayers />} />
+              <Route path='file' element={<ChangeFile />} />
             </Route>
           </Route>
 
