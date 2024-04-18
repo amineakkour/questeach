@@ -5,6 +5,10 @@
     justify-content: center;
 }
 
+h1{
+    font-size: 4em;
+}
+
 a{
     color: inherit;
     font-size: 0.8em;

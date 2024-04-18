@@ -1,4 +1,5 @@
 import ChangeFile from './config/file/ChangeFile';
+import EditTimer from './config/timer/EditTimer';
 import CreateFile from './CreateFile';
 import ChooseFile from './ChooseFile';
 import Home from '../pages/Home';
@@ -35,6 +36,10 @@ export default function Skelaton() {
             <Route path='config' element={<Container />}>
               <Route path='players' element={<EditPlayers />} />
               <Route path='file' element={<ChangeFile />} />
+              <Route path='timer'>
+              <Route path='edit' element={<EditTimer />} />
+
+              </Route>
             </Route>
           </Route>
 
