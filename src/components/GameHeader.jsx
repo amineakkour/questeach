@@ -52,7 +52,7 @@ function List(){
   }
 
   return (
-    <div className={styles.paremeters}>
+    <nav className={styles.paremeters}>
       <ul>      
         <div className={`${styles.Item} ${isPlayersButtonActivate ? styles.active : ""}`}>
 
@@ -84,12 +84,12 @@ function List(){
 
           {isTimeButtonActivate && <div className={styles.subItems}>
             <button onClick={() => navigate("config/timer/edit")}>Edit Timer</button>
-            <button onClick={() => navigate("config/timer/remove")}>Remove Timer</button>
+            <button onClick={() => navigate("config/timer/remove")}>Add / Remove</button>
           </div>}
 
         </div>
 
       </ul>
-    </div>
+    </nav>
   )
 }

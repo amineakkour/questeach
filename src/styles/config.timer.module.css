@@ -1,0 +1,19 @@
+.field{
+    display: flex;
+    /* border: 1px solid darkblue; */
+    gap: 20px;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.twoDigits{
+    width: 40px;
+}
+
+.editBtn{
+    background-color: var(--first-color);
+    color: var(--white-color);
+    outline: 0;
+    border: none;
+    padding: 3px 10px;
+}

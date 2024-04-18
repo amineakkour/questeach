@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function AddTimer() {
+export default function AddRemoveTimer() {
   return (
     <div>AddTimer</div>
   )
