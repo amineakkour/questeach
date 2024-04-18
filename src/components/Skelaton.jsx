@@ -10,6 +10,7 @@ import setLocalStorage from '../functions/setLocalStorage';
 import { useParams } from 'react-router';
 import { useEffect } from 'react';
 import { useStarterContext } from '../context/StarterProvider';
+import Error404 from '../pages/Error404';
 
 
 export default function Skelaton() {
@@ -37,7 +38,7 @@ export default function Skelaton() {
             </Route>
           </Route>
 
-          <Route path="*" element={<h1>Page not found</h1>} />
+          <Route path="*" element={<Error404 />} />
         </Routes>
     </BrowserRouter>
   )
