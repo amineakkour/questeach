@@ -1,5 +1,4 @@
-import React from 'react'
-import AddPlayers from "../../AddPlayers";
+import AddPlayers from "../AddPlayers";
 
 export default function EditPlayers() {
   return (

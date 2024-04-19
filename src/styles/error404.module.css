@@ -7,9 +7,31 @@
 
 h1{
     font-size: 4em;
+    margin-bottom: 10px;
+}
+
+.links{
+    font-size: 0.8em;
 }
 
 a{
     color: inherit;
-    font-size: 0.8em;
+    font-size: inherit;
+    text-decoration: none;
+    opacity: .8;
+}
+
+.active{
+    opacity: 1;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+
+
+.links{
+    display: flex;
+    gap: 10px;
 }

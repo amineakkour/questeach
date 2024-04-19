@@ -84,7 +84,7 @@ function List(){
 
           {isTimeButtonActivate && <div className={styles.subItems}>
             <button onClick={() => navigate("config/timer/edit")}>Edit Timer</button>
-            <button onClick={() => navigate("config/timer/remove")}>Add / Remove</button>
+            <button onClick={() => navigate("config/timer/active")}>Active Timer</button>
           </div>}
 
         </div>

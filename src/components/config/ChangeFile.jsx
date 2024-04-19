@@ -1,5 +1,4 @@
-import React from 'react'
-import FileForm from '../../FileForm'
+import FileForm from '../FileForm'
 
 export default function ChangeFile() {
   return (

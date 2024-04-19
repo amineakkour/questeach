@@ -11,22 +11,17 @@ export default function StarterProvider({children}) {
   const [file, setFile] = useState(getLocalStorage("file") || null);
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [alerts, setAlerts] = useState([])
+  const [timer, setTimer] = useState({seconds: 20, isActive: true})
 
   const allProps = {
-    players,
-    setPlayers,
-    file,
-    setFile,
-    alerts,
-    setAlerts,
-    titleStatus,
-    setTitleStatus,
-    steps,
-    setSteps,
-    showInfos,
-    setShowInfos,
-    isGameStarted,
-    setIsGameStarted,
+    players, setPlayers,
+    file, setFile,
+    alerts, setAlerts,
+    titleStatus, setTitleStatus,
+    steps, setSteps,
+    showInfos, setShowInfos,
+    isGameStarted, setIsGameStarted,
+    timer, setTimer
   }
 
   return (
