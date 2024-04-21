@@ -1,5 +1,6 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 import getLocalStorage from '../functions/getLocalStorage';
+import setLocalStorage from '../functions/setLocalStorage';
 
 const MyContext = createContext();
 
@@ -11,7 +12,17 @@ export default function StarterProvider({children}) {
   const [file, setFile] = useState(getLocalStorage("file") || null);
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [alerts, setAlerts] = useState([])
-  const [timer, setTimer] = useState({seconds: 20, isActive: true})
+  const [timer, setTimer] = useState(getLocalStorage("timer") || {seconds: 20, isActive: true})
+  const [activePlayer, setActivePlayer] = useState(localStorage.getItem("activePlayer") || 0)
+
+  useEffect(() => {
+    setLocalStorage("players", players);
+    setLocalStorage("file", file);
+    setLocalStorage("timer", timer);
+    localStorage.setItem("activePlayer", activePlayer)
+
+    if(file) setLocalStorage("ex_file", file);
+  }, [players, file, timer, activePlayer])
 
   const allProps = {
     players, setPlayers,
@@ -21,7 +32,8 @@ export default function StarterProvider({children}) {
     steps, setSteps,
     showInfos, setShowInfos,
     isGameStarted, setIsGameStarted,
-    timer, setTimer
+    timer, setTimer, 
+    activePlayer, setActivePlayer,
   }
 
   return (

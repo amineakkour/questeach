@@ -7,22 +7,11 @@ import Game from '../pages/Game';
 import Container from "./config/Container";
 import EditPlayers from "./config/EditPlayers";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import setLocalStorage from '../functions/setLocalStorage';
-import { useEffect } from 'react';
-import { useStarterContext } from '../context/StarterProvider';
 import Error404 from '../pages/Error404';
 import ActiveTimer from './config/ActiveTimer';
+import Question from '../pages/Question';
 
 export default function Skelaton() {
-  const {players, file } = useStarterContext()
-
-  useEffect(() => {
-    setLocalStorage("players", players);
-    setLocalStorage("file", file);
-
-    if(file) setLocalStorage("ex_file", file);
-  }, [players, file])
-
   return (
     <BrowserRouter>
         <Routes>
@@ -40,6 +29,8 @@ export default function Skelaton() {
                 <Route path='active' element={<ActiveTimer />} />
               </Route>
             </Route>
+
+            <Route path='q/:id' element={<Question />} />
           </Route>
 
           <Route path="*" element={<Error404 />} />

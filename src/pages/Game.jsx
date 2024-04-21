@@ -6,9 +6,9 @@ import { useEffect } from "react"
 import { useStarterContext } from "../context/StarterProvider"
 
 export default function Game(){
-  const { file } = useStarterContext()
   const navigate = useNavigate()
-  const {players} = useStarterContext()
+  const {players, file, activePlayer} = useStarterContext()
+  const player = players[activePlayer]
 
   useEffect(() => {
     if(!(players.length >= 2 && file)){
@@ -25,7 +25,7 @@ export default function Game(){
         <div className={styles.content}>
           <Outlet />
           <div className={styles.title}>
-            <h2>Choose a question for the Player Amine.</h2>
+            <h2>Choose a question for {player.name}</h2>
           </div>
           <GameQuestionWrapper fcontent={file.fcontent} />
         </div>

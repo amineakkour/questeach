@@ -16,8 +16,8 @@ export default function EditTimer() {
       <h2>Edit timer</h2>
       <br />
       <div className={styles.field}>
-        <h5>Seconds</h5>
         <input type="number" min="0" className={styles.seconds} value={timer.seconds} onChange={e => editTimer(e.target.value)} />
+        <h5>Seconds</h5>
       </div>
     </div>
   )

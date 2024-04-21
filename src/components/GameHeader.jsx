@@ -3,11 +3,11 @@ import femaleAvatar from "../images/female-avatar.png"
 
 import styles from "../styles/game.module.css"
 import { Link, useNavigate } from "react-router-dom"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useStarterContext } from "../context/StarterProvider"
 
 export default function GameHeader(){
-  const {players} = useStarterContext()
+  const {players, activePlayer} = useStarterContext()
 
   return (
     <div className={styles.header}>
@@ -15,7 +15,7 @@ export default function GameHeader(){
       <div className={styles.playersContainer}>
         {players.map((ply, ind) => {
           return (
-              <div className={`${styles.player} ${ind === 0 ? styles.active : ""}`} key={ply.id}>
+              <div className={`${styles.player} ${ind == activePlayer ? styles.active : ""}`} key={ply.id}>
                 <div className={styles.avatar}>
                   <img src={ply.sex === "m" ? maleAvatar : femaleAvatar} alt={ply.sex + " Avatar"} />
                 </div>
@@ -69,16 +69,7 @@ function List(){
           </div>}
 
         </div>
-
-        <div className={`${styles.Item} ${isFileButtonActivate ? styles.active : ""}`}>
-          <button onClick={() => setIsFileButtonActivate(v => !v)}>File <i className="fa-solid fa-chevron-down"></i></button>
-
-          {isFileButtonActivate && <div className={styles.subItems}>
-            <button><Link to={"config/file"}>Change File</Link></button>
-          </div>}
-
-        </div>
-
+        
         <div className={`${styles.Item} ${isTimeButtonActivate ? styles.active : ""}`}>
           <button onClick={() => setIsTimeButtonActivate(v => !v)} >Timer <i className="fa-solid fa-chevron-down"></i></button>
 
