@@ -2,19 +2,17 @@ import styles from "../styles/game.module.css"
 import { Outlet, useNavigate } from "react-router-dom"
 import GameHeader from "../components/GameHeader"
 import GameQuestionWrapper from "../components/GameQuestionWrapper"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useStarterContext } from "../context/StarterProvider"
 
 export default function Game(){
   const navigate = useNavigate()
-  const {players, file, activePlayer} = useStarterContext()
-  const player = players[activePlayer]
+  const {players, file, activePlayer} = useStarterContext();
+  const player = players[activePlayer];
 
   useEffect(() => {
-    if(!(players.length >= 2 && file)){
-      navigate("/2")
-    }
-  }, [players.length, file])
+    if(!(players.length >= 2 && file)) navigate("/2");
+  }, [players.length, file, navigate])
 
 
   if(players.length >= 2 && file){

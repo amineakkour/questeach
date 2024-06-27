@@ -1,9 +1,0 @@
-import FileForm from '../FileForm'
-
-export default function ChangeFile() {
-  return (
-    <div>
-      <FileForm />
-    </div>
-  )
-}

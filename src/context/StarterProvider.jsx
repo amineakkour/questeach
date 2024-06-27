@@ -39,10 +39,10 @@ export default function StarterProvider({children}) {
   return (
     <MyContext.Provider value={allProps}>
       {children}
-      </MyContext.Provider>
+    </MyContext.Provider>
   )
 }
 
 export const useStarterContext = () => {
-  return useContext(MyContext)
+  return useContext(MyContext);
 }

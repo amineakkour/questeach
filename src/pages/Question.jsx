@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import styles from "../styles/question.module.css"
 import { useStarterContext } from '../context/StarterProvider'
 import { useNavigate, useParams } from 'react-router';
@@ -10,7 +10,6 @@ export default function Question() {
   const answers = question.answers
   const navigate = useNavigate();
   const [answerId, setAnswerId] = useState(null)
-  const [selectedAnswer, setSelectedAnswer] = useState([]);
 
   function correctAnswers(){
     var correctAnswers = []
@@ -40,6 +39,10 @@ export default function Question() {
     // console.log(correctAnswers())
   }
 
+  function cancelQuestion() {
+    console.log("cancel")
+  }
+
   return (
     <form className={styles.container} onSubmit={e => checkAnswer(e)}>
       <div className={styles.questionWrapper}>
@@ -63,7 +66,7 @@ export default function Question() {
         </div>
         
         <div className={styles.btns}>
-          <button className={styles.cancel} type='button'>Cancel</button>
+          <button onClick={cancelQuestion} className={styles.cancel} type='button'>Cancel</button>
           <button className={styles.submit} type='submit'>Submit</button>
         </div>
       </div>

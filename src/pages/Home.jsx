@@ -6,10 +6,10 @@ import { useParams } from "react-router";
 import { useEffect } from "react";
 
 export default function Home() {
-  const {titleStatus, setSteps, } = useStarterContext()
+  const {titleStatus, setSteps} = useStarterContext()
   const {pageId} = useParams()
 
-  useEffect(() => setSteps(parseInt(pageId) || 1), [setSteps, pageId])
+  useEffect(() => setSteps(parseInt(pageId) || 1), [setSteps, pageId]) //initialise page StepCounter
   
   return (
       <div className="app">

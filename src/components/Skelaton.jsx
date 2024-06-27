@@ -1,4 +1,3 @@
-import ChangeFile from './config/ChangeFile';
 import EditTimer from './config/EditTimer';
 import CreateFile from './create-file/CreateFile';
 import ChooseFile from './ChooseFile';
@@ -15,7 +14,7 @@ export default function Skelaton() {
   return (
     <BrowserRouter>
         <Routes>
-          <Route path='' element={<Home />} />
+          <Route path='/' element={<Home />} />
           <Route path='/:pageId' element={<Home />} />
           <Route path='create-file' element={<CreateFile />} />
           <Route path='choose-file' element={<ChooseFile />} />
@@ -23,7 +22,6 @@ export default function Skelaton() {
           <Route path="game" element={<Game />}>
             <Route path='config' element={<Container />}>
               <Route path='players' element={<EditPlayers />} />
-              <Route path='file' element={<ChangeFile />} />
               <Route path='timer'>
                 <Route path='edit' element={<EditTimer />} />
                 <Route path='active' element={<ActiveTimer />} />
