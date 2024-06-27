@@ -5,7 +5,6 @@ import AlertBox from "../components/AlertBox"
 import AddPlayers from "../components/AddPlayers"
 import Infos from "../components/Infos";
 
-import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom'; 
 import StartButton from "./StartButton";
 import BackToButton from "./BackToButton";
@@ -19,6 +18,9 @@ export default function Content(){
   const { showInfos } = useStarterContext()
   const { alerts } = useStarterContext()
   
+  useEffect(() => {
+    if(steps >= 4) navigate('/game');
+  }, [navigate, steps])
 
   return(
   <div className={styles.content}>
@@ -33,7 +35,6 @@ export default function Content(){
 
     {steps === 3 && <AddPlayers />}
 
-    {steps >= 4 && navigate("/game")}
   </div>
   )
 }
