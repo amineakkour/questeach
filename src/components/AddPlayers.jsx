@@ -143,7 +143,7 @@ export default function AddPlayers(){
           <div className={styles.activePlayer}>
             <label htmlFor="activePlayerValue">Start with player:</label>
             <button onClick={() => onChangeactivePlayerValue(-1)}>{"-"}</button>
-            <output>{parseInt(activePlayerValue)}</output>
+            <output>{parseInt(activePlayerValue) +1}</output>
             <button onClick={() => onChangeactivePlayerValue(1)}>{"+"}</button>
           </div>
           <p className={styles.count}>Players count: <b>{players.length}/{playersLengthMax}</b></p>
