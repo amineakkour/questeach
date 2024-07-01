@@ -4,12 +4,13 @@ import { useStarterContext } from '../context/StarterProvider'
 import { useNavigate, useParams } from 'react-router';
 
 export default function Question() {
-  const {file, setFile} = useStarterContext();
+  const {file, setFile, activePlayer} = useStarterContext();
   const {id} = useParams();
   const question = file.fcontent[id -1];
   const answers = question.answers
   const navigate = useNavigate();
-  const [answerId, setAnswerId] = useState(null)
+  const [answerId, setAnswerId] = useState(null);
+
 
   function correctAnswers(){
     var correctAnswers = []

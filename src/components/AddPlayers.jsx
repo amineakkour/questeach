@@ -10,20 +10,18 @@ import { useStarterContext } from "../context/StarterProvider";
 
 
 export default function AddPlayers(){
-  const { players, setPlayers } = useStarterContext()
-  const { setTitleStatus } = useStarterContext()
-  const { setSteps } = useStarterContext()
-  const { setAlerts } = useStarterContext()
+  const { players, setPlayers, setTitleStatus, setSteps, setAlerts, setActivePlayer } = useStarterContext();
 
-  const [sex, setSex] = useState("m")
-  const [name, setName] = useState("")
-  const [showMorePlayers, setShowMorePlayers] = useState(null)
-  const [maxShownPlayers, setMaxShownPlayers] = useState(4)
-  const [showConfirmBox, setShowConfirmBox] = useState(null)
-  const [, setRerender] = useState(false)
-  const nameLengthMax = 15
-  const playersLengthMax = 8
-  const setPlayerNameInput = useRef(null)
+  const [sex, setSex] = useState("m");
+  const [name, setName] = useState("");
+  const [showMorePlayers, setShowMorePlayers] = useState(null);
+  const [maxShownPlayers, setMaxShownPlayers] = useState(4);
+  const [showConfirmBox, setShowConfirmBox] = useState(null);
+  const [, setRerender] = useState(false);
+  const nameLengthMax = 15;
+  const playersLengthMax = 8;
+  const setPlayerNameInput = useRef(null);
+  const [activePlayerValue, setActivePlayerValue] = useState(localStorage.getItem("activePlayer"));
 
   useFocusInput("Enter", setPlayerNameInput.current)
 
@@ -87,8 +85,18 @@ export default function AddPlayers(){
     )
   }
 
-  function handlePushPlayers () {
+  function onChangeactivePlayerValue(direction) {
+    var value = null;
+    if(direction === 1) {
+      value = parseInt(activePlayerValue) + direction > players.length -1 ? players.length -1 : parseInt(activePlayerValue) + direction;
+    }else {
+      value = parseInt(activePlayerValue) + direction < 0 ? 0 : parseInt(activePlayerValue) + direction;
+    }
 
+    setActivePlayerValue(value);
+  }
+
+  function handlePushPlayers () {
     if(name){
       setAlerts(alrts => [...alrts, {id: alrts[alrts.length -1]?.id +1 || 1, state: 'error', chart: `Player {${name}} not added. click on Add Player button to move further.`}])
       return ""
@@ -132,13 +140,19 @@ export default function AddPlayers(){
         </div>
 
         <div className={styles.players}>
+          <div className={styles.activePlayer}>
+            <label htmlFor="activePlayerValue">Start with player:</label>
+            <button onClick={() => onChangeactivePlayerValue(-1)}>{"-"}</button>
+            <output>{parseInt(activePlayerValue)}</output>
+            <button onClick={() => onChangeactivePlayerValue(1)}>{"+"}</button>
+          </div>
           <p className={styles.count}>Players count: <b>{players.length}/{playersLengthMax}</b></p>
           
           {players.length > 0 &&
           (players.map((player, ind) => {
             return (
             (ind < maxShownPlayers) && 
-            <div key={ind} className={styles.player}>
+            <div key={ind} className={`${styles.player} ${ind == activePlayerValue ? styles.active : ''}`}>
               <div className={styles.ind}>
                 {ind +1}
               </div>

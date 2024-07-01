@@ -87,6 +87,32 @@
   margin-bottom: 5px;
 }
 
+.players .activePlayer{
+  margin: 10px 0;
+}
+
+.players .activePlayer label{
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 4px;
+}
+
+.players .activePlayer button{
+  background-color: var(--first-color);
+  padding: 2px 6px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.players .activePlayer button:active {
+  background-color: var(--second-color);
+}
+
+.players .activePlayer output {
+  margin: 0 3px;
+}
+
 .players .player{
   display: flex;
   justify-content: space-between;
@@ -119,6 +145,11 @@
   border-radius: 50%;
   width: 30px;
   height: 30px;
+}
+
+.player.active {
+  outline: 1px dashed black !important;
+  outline-offset: 1px;
 }
 
 .player .ind{

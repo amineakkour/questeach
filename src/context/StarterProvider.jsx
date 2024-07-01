@@ -13,7 +13,7 @@ export default function StarterProvider({children}) {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [alerts, setAlerts] = useState([])
   const [timer, setTimer] = useState(getLocalStorage("timer") || {seconds: 20, isActive: true})
-  const [activePlayer, setActivePlayer] = useState(localStorage.getItem("activePlayer") || 0)
+  const [activePlayer, setActivePlayer] = useState(localStorage.getItem("activePlayer") || 0);
 
   useEffect(() => {
     setLocalStorage("players", players);
