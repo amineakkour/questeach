@@ -9,8 +9,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Error404 from '../pages/Error404';
 import ActiveTimer from './config/ActiveTimer';
 import Question from '../pages/Question';
+import { useEffect, useState } from 'react';
+import DevilceNotAllowed from '../pages/DeviceNotAllowed';
 
 export default function Skelaton() {
+  var [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if(window.innerWidth < 600) setIsMobile(true)
+  }, [])
+
+
+  if(isMobile) return <DevilceNotAllowed />
+
   return (
     <BrowserRouter>
         <Routes>
