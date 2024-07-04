@@ -32,9 +32,7 @@ export default function GameHeader(){
 }
 
 function List(){
-  const {setFile} = useStarterContext()
-  const {setPlayers} = useStarterContext()
-  const {setIsGameStarted} = useStarterContext()
+  const {setFile, setPlayers, setIsGameStarted, setActivePlayer} = useStarterContext()
 
   const [isPlayersButtonActivate, setIsPlayersButtonActivate] = useState(false);
   const [isTimeButtonActivate, setIsTimeButtonActivate] = useState(false);
@@ -43,10 +41,11 @@ function List(){
   const navigate = useNavigate()
 
   function restart(){
-    setIsGameStarted(false)
-    setFile(null)
-    setPlayers([])
-    navigate("/")
+    setIsGameStarted(false);
+    setFile(null);
+    setPlayers([]);
+    setActivePlayer(0);
+    navigate("/");
   }
 
   return (
