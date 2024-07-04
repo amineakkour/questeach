@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import { useStarterContext } from "../../context/StarterProvider"
 import styles from "../../styles/config.timer.module.css"
 
@@ -22,8 +21,6 @@ export default function ActiveTimer() {
           </span><span></span>
         </label>
       </div>
-
-        
       </div>
     </div>
   )
