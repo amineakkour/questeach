@@ -19,6 +19,11 @@ input.seconds {
   -moz-appearance: textfield;
 }
 
+.error p{
+  color: var(--red-color);
+  font-size: 13px;
+}
+
 .editBtn{
     background-color: var(--first-color);
     color: var(--white-color);
