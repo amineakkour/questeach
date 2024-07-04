@@ -12,7 +12,7 @@ export default function GameQuestionWrapper({ fcontent }){
 
   return (
     <div className={styles.questionWrapper}>
-      {fcontent.map((q, ind) => <li onClick={() => navigateToQuestion(q)} key={ind} className={`${ind === 4 ? styles.disable : ""} ${styles.question}`}>{ind +1}</li>)}
+      {fcontent.map((q, ind) => <li onClick={() => !q.isDeactivated && navigateToQuestion(q)} key={ind} className={`${q.isDeactivated ? styles.disable : ""} ${styles.question}`}>{ind +1}</li>)}
     </div>
   )
 }
