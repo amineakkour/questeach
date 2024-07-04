@@ -14,13 +14,13 @@ import DevilceNotAllowed from '../pages/DeviceNotAllowed';
 
 export default function Skelaton() {
   var [isMobile, setIsMobile] = useState(false);
+  var [continuo, setContinuo] = useState(false);
 
   useEffect(() => {
     if(window.innerWidth < 600) setIsMobile(true)
   }, [])
 
-
-  if(isMobile) return <DevilceNotAllowed />
+  if(isMobile && !continuo) return <DevilceNotAllowed setContinuo={setContinuo} />
 
   return (
     <BrowserRouter>
