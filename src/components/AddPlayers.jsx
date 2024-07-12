@@ -25,8 +25,6 @@ export default function AddPlayers(){
 
   useFocusInput("Enter", setPlayerNameInput.current)
 
-  useEffect(() => {setShowMorePlayers(players.length > maxShownPlayers)}, [players, showMorePlayers, maxShownPlayers])
-
   function handleAddPlayer(){
     if(players.length >= playersLengthMax){
       setAlerts(alrts => [...alrts, {id: alrts[alrts.length -1]?.id +1 || 1, state: 'error', chart: `Please the limit of the players is ${playersLengthMax}.`}])
@@ -85,7 +83,7 @@ export default function AddPlayers(){
     )
   }
 
-  function onChangeactivePlayerValue(direction) {
+  function onChangeActivePlayerValue(direction) {
     var value = null;
     if(direction === 1) {
       value = parseInt(activePlayerValue) + direction > players.length -1 ? players.length -1 : parseInt(activePlayerValue) + direction;
@@ -104,6 +102,16 @@ export default function AddPlayers(){
 
     setSteps(st => st +1)
   }
+
+  useEffect(() => {
+    if(activePlayerValue +1 > players.length) {
+      setActivePlayerValue(players.length -1);
+    }
+  }, [players.length])
+  
+  useEffect(() => {
+    setShowMorePlayers(players.length > maxShownPlayers)
+  }, [players, showMorePlayers, maxShownPlayers])
 
   return (
     <div className={styles.addPlayerformContainer}>
@@ -142,9 +150,9 @@ export default function AddPlayers(){
         <div className={styles.players}>
           <div className={styles.activePlayer}>
             <label htmlFor="activePlayerValue">Start with player:</label>
-            <button onClick={() => onChangeactivePlayerValue(-1)}>{"-"}</button>
+            <button onClick={() => onChangeActivePlayerValue(-1)}>{"-"}</button>
             <output>{parseInt(activePlayerValue) +1}</output>
-            <button onClick={() => onChangeactivePlayerValue(1)}>{"+"}</button>
+            <button onClick={() => onChangeActivePlayerValue(1)}>{"+"}</button>
           </div>
           <p className={styles.count}>Players count: <b>{players.length}/{playersLengthMax}</b></p>
           
