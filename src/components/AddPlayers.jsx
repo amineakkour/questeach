@@ -105,7 +105,7 @@ export default function AddPlayers(){
 
   useEffect(() => {
     if(activePlayerValue +1 > players.length) {
-      setActivePlayerValue(players.length -1);
+      setActivePlayerValue(players.length ? players.length -1 : 0);
     }
   }, [players.length])
   
